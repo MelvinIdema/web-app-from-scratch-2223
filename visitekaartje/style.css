@@ -97,6 +97,7 @@ section {
 @media only screen and (max-width: 720px) {
   section {
     min-width: 75%;
+    margin-bottom: 0;
   }
 
   .information-card {
