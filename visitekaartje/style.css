@@ -1,0 +1,83 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+h1, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  background-color: hsl(210, 17%, 98%);
+  background-image: radial-gradient(rgba(0, 0, 0, .25) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: -19px -19px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+section {
+  background: white;
+  padding: 2em;
+  border-radius: 6px;
+  position: relative;
+  margin-bottom: 6em;
+  min-width: 450px;
+  width: 35%;
+  /* https://getcssscan.com/css-box-shadow-examples */
+  box-shadow: rgba(30, 150, 252, 0.4) -5px 5px, rgba(30, 150, 252, 0.3) -10px 10px, rgba(30, 150, 252, 0.2) -15px 15px, rgba(30, 150, 252, 0.1) -20px 20px, rgba(30, 150, 252, 0.05) -25px 25px;
+}
+
+.information-card {
+  display: grid;
+  grid-template-areas: 'avatar name name'
+                       'avatar bio bio';
+  place-items: center;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  grid-template: 'avatar';
+  width: 150px;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 24px 0 auto;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.full-name {
+  grid-template: 'name';
+  display: block;
+  position: relative;
+  margin-bottom: 8px;
+  font-size: 2em;
+}
+
+.bio {
+  grid-template: 'bio';
+}
