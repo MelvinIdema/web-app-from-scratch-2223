@@ -39,6 +39,13 @@ section {
   width: 35%;
   /* https://getcssscan.com/css-box-shadow-examples */
   box-shadow: rgba(30, 150, 252, 0.4) -5px 5px, rgba(30, 150, 252, 0.3) -10px 10px, rgba(30, 150, 252, 0.2) -15px 15px, rgba(30, 150, 252, 0.1) -20px 20px, rgba(30, 150, 252, 0.05) -25px 25px;
+  transition: all 300ms ease-in-out;
+  transform: rotateZ(1.5deg);
+  cursor: pointer;
+}
+
+section:hover {
+  transform: rotateZ(0deg);
 }
 
 .information-card {
@@ -80,4 +87,22 @@ section {
 
 .bio {
   grid-template: 'bio';
+}
+
+@media only screen and (max-width: 720px) {
+  section {
+    min-width: 75%;
+  }
+
+  .information-card {
+    grid-template-areas: "avatar"
+                         "name"
+                         "bio";
+    text-align: center;
+  }
+
+  .avatar {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
 }
