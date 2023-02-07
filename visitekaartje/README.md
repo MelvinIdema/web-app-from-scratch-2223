@@ -1,3 +1,5 @@
+> # Voor een vollediger proces bezoek https://kaartje.ikbenmel.vin/proces
+
 # Visitekaartje opdracht
 #minor #HvA #WAfS
 
