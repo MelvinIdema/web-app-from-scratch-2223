@@ -11,11 +11,20 @@ async function hydrate({fullName, bio, avatar}) {
     avatar.src = memberData.avatar;
 }
 
+function flipCard(card) {
+    card.classList.add("flip");
+    setTimeout(() => {
+        card.classList.remove("flip");
+    }, 1000)
+}
+
 window.onload = async (ma) => {
     const card = document.querySelector("section");
     const fullName = document.querySelector(".full-name");
     const bio = document.querySelector(".bio");
     const avatar = document.querySelector(".avatar img");
+
+    setTimeout(() => flipCard(card), 5000);
 
     const map = {
         fullName,
@@ -26,9 +35,6 @@ window.onload = async (ma) => {
     await hydrate(map);
 
     card.addEventListener('click', () => {
-        card.classList.add("flip");
-        setTimeout(() => {
-            card.classList.remove("flip");
-        }, 1000)
+        flipCard(card);
     });
 }
