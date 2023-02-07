@@ -24,7 +24,7 @@ window.onload = async (ma) => {
     const bio = document.querySelector(".bio");
     const avatar = document.querySelector(".avatar img");
 
-    setTimeout(() => flipCard(card), 5000);
+    setInterval(() => flipCard(card), 8000);
 
     const map = {
         fullName,
