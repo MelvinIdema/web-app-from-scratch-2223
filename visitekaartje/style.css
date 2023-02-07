@@ -94,6 +94,19 @@ section {
   animation-iteration-count: 1;
 }
 
+.view-process-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 16px 32px;
+  background: white;
+  text-decoration: none;
+  color: black;
+  border-radius: 20px;
+  box-shadow: rgba(30, 150, 252, 0.1) 0px 20px 25px -5px, rgba(30, 150, 252, 0.04) 0px 10px 10px -5px;
+  border: 1px solid rgba(30, 150, 252, .2);
+}
+
 @media only screen and (max-width: 720px) {
   section {
     min-width: 75%;
