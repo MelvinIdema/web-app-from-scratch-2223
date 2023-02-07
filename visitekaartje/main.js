@@ -12,6 +12,7 @@ async function hydrate({fullName, bio, avatar}) {
 }
 
 window.onload = async (ma) => {
+    const card = document.querySelector("section");
     const fullName = document.querySelector(".full-name");
     const bio = document.querySelector(".bio");
     const avatar = document.querySelector(".avatar img");
@@ -23,4 +24,11 @@ window.onload = async (ma) => {
     }
 
     await hydrate(map);
+
+    card.addEventListener('click', () => {
+        card.classList.add("flip");
+        setTimeout(() => {
+            card.classList.remove("flip");
+        }, 1000)
+    });
 }

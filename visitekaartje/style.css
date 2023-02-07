@@ -39,13 +39,12 @@ section {
   width: 35%;
   /* https://getcssscan.com/css-box-shadow-examples */
   box-shadow: rgba(30, 150, 252, 0.4) -5px 5px, rgba(30, 150, 252, 0.3) -10px 10px, rgba(30, 150, 252, 0.2) -15px 15px, rgba(30, 150, 252, 0.1) -20px 20px, rgba(30, 150, 252, 0.05) -25px 25px;
-  transition: all 300ms ease-in-out;
-  transform: rotateZ(1.5deg);
+  /*transition: all 300ms ease-in-out;*/
   cursor: pointer;
-}
-
-section:hover {
-  transform: rotateZ(0deg);
+  animation-name: breath;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transition: all 300ms ease-in-out;
 }
 
 .information-card {
@@ -89,6 +88,12 @@ section:hover {
   grid-template: 'bio';
 }
 
+.flip {
+  animation-name: flip;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
 @media only screen and (max-width: 720px) {
   section {
     min-width: 75%;
@@ -104,5 +109,27 @@ section:hover {
   .avatar {
     margin-right: 0;
     margin-bottom: 16px;
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+  }
+
+  100% {
+    transform: rotateX(2880deg);
+  }
+}
+
+@keyframes breath {
+  0% {
+      transform: rotateZ(1deg) scale(1);
+  }
+  50% {
+    transform: rotateZ(1deg) scale(1.025);
+  }
+  100% {
+    transform: rotateZ(1deg) scale(1);
   }
 }
