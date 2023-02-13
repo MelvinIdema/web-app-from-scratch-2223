@@ -1,24 +1,18 @@
 const host = "http://localhost:63342/web-app-from-scratch-2223/spa/";
 
-function storeBearerToken(bearerToken) { sessionStorage.setItem("bearerToken", bearerToken); }
-function retrieveBearerToken() { return sessionStorage.getItem("bearerToken"); }
-function removeBearerToken() { sessionStorage.removeItem("bearerToken"); }
+function storeBearerToken(bearerToken) {
+    sessionStorage.setItem("bearerToken", bearerToken);
+}
 
-// https://stackoverflow.com/questions/298503/how-can-you-check-for-a-hash-in-a-url-using-javascript
-function getAccessTokenFromUrl() {
-    const hash = window.location.hash.substr(1);
+function retrieveBearerToken() {
+    return sessionStorage.getItem("bearerToken");
+}
 
-    const result = hash.split('&').reduce(function (res, item) {
-        const parts = item.split('=');
-        res[parts[0]] = parts[1];
-        return res;
-    }, {});
-
-    return result['access_token']
+function removeBearerToken() {
+    sessionStorage.removeItem("bearerToken");
 }
 
 const isAuthenticated = () => !!retrieveBearerToken();
-const tokenInUrl = () => !!getAccessTokenFromUrl();
 
 function generateAuthorizationURL() {
     const clientId = "lbPrqkICyqfOhIehuKWMUyZfDJvGlqDNW_Yig-4yFDWsoTNNfeq2ZxCTywOFWLja";
@@ -34,29 +28,21 @@ function generateAuthorizationURL() {
     authorizationUrl.searchParams.append("state", state);
     authorizationUrl.searchParams.append("response_type", responseType);
 
-
     return authorizationUrl.toString();
 }
 
-function check() {
-    if(tokenInUrl()) {
-        const accessToken = getAccessTokenFromUrl();
-        storeBearerToken(accessToken);
-        return window.location.replace(host);
-    }
-    return window.location.replace(host);
+function redirectToAPIAuthorization() {
+    const authUrl = generateAuthorizationURL();
+    window.location.replace(authUrl);
 }
 
-function login() {
-    if(!isAuthenticated()) {
-        const authUrl = generateAuthorizationURL();
-        window.location.replace(authUrl);
-    }
+const login = () => {
+    if (!isAuthenticated()) redirectToAPIAuthorization();
 }
 
 function logout() {
-    if(!isAuthenticated()) return;
+    if (!isAuthenticated()) return;
     removeBearerToken();
 }
 
-export { login, logout, isAuthenticated }
+export {login, logout, isAuthenticated, storeBearerToken, retrieveBearerToken, redirectToAPIAuthorization, host}
