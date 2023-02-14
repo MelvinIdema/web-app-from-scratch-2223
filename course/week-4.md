@@ -54,7 +54,7 @@ It's important to write your Readme with a description of your own work, explena
 
 When you're writing your project's README, it should be able to answer the what, why, and the how of the project.
 
-<!-- Project - your app is working and published on GitHub Pages. Your project is thoroughly documented in the README.md file in your repository. -->
+<!-- Project - your app is working and published on GitHub Pages. Your project is thoroughly documented in the backup-README.md file in your repository. -->
 
 ```
 - Add a link to your live demo in Github Pages 🌐

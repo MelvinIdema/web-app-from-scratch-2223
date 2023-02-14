@@ -119,7 +119,7 @@ Every screen you’ll design for your SPA can have up to five states: Ideal Stat
 <!-- - [Use promise.finally() to remove loading state](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally)   -->
  
  
- <!-- ## 3. Fork GitHub repository for this course and setup the README.md
+ <!-- ## 3. Fork GitHub repository for this course and setup the backup-README.md
 
 All code and documentation that you write (for all courses and projects in this minor) will be in a GitHub repository. Make a neat layout of files and folders. Make sure that the code can also be viewed via GitHub Pages as rendered HTML, CSS & JavaScript. A Github repo is only complete if it contains a description and readme (with a poster image of the project). We have already prepared a repository that you can fork.
 
@@ -128,7 +128,7 @@ Fork this repository: https://github.com/cmda-minor-web/web-app-from-scratch-212
 Open issues on your repo so that you can get feedback!
 Publish your web app with Github pages and add the link to the web app in the repo description.
 
-A good app comes with a good README.md in which you describe the application. Add the chapters below and document your app.
+A good app comes with a good backup-README.md in which you describe the application. Add the chapters below and document your app.
 
 - linkToLiveDemo? review (assignment): assignGrade (1);  
 - What does your app do, what is the goal? Add the USer Story and explain your app design (passing butter)  
@@ -138,7 +138,7 @@ A good app comes with a good README.md in which you describe the application. Ad
 - Which design patterns and best practices
 - What would you like to add (feature wishlist / backlog)  
 
-*(Also see the commented hints in the README.md)* 
+*(Also see the commented hints in the backup-README.md)* 
 
 ### Resources
 
