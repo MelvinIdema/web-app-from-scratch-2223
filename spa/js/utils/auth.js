@@ -1,4 +1,4 @@
-const host = "http://localhost:63342/web-app-from-scratch-2223/spa/";
+const host = "https://lyriq.ikbenmel.vin";
 
 function storeBearerToken(bearerToken) {
     sessionStorage.setItem("bearerToken", bearerToken);
