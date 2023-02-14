@@ -37,12 +37,13 @@ function redirectToAPIAuthorization() {
 }
 
 const login = () => {
-    if (!isAuthenticated()) redirectToAPIAuthorization();
+    if (isAuthenticated()) return;
+    return redirectToAPIAuthorization();
 }
 
 function logout() {
     if (!isAuthenticated()) return;
-    removeBearerToken();
+    return removeBearerToken();
 }
 
 export {login, logout, isAuthenticated, storeBearerToken, retrieveBearerToken, redirectToAPIAuthorization, host}
