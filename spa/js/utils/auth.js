@@ -1,4 +1,4 @@
-const host = "https://lyriq.ikbenmel.vin";
+const host = "https://lyriq.ikbenmel.vin/";
 
 function storeBearerToken(bearerToken) {
     sessionStorage.setItem("bearerToken", bearerToken);
