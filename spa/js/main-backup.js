@@ -1,5 +1,5 @@
-import {login, logout, isAuthenticated} from "./utils/auth.js";
-import {search, getSongById} from "./utils/api.js";
+import {isAuthenticated, login, logout} from "./utils/auth.js";
+import {getSongById, search} from "./utils/api.js";
 
 const controls = document.getElementById("controls");
 
@@ -25,9 +25,22 @@ async function fetchLyrics(path) {
     return data.res;
 }
 
+async function fetchSentiment(lyricsInHtml) {
+    const response = await fetch('https://serverless-shit.ikbenmel.vin/api/analyseSentiment', {
+        method: 'POST',
+        body: JSON.stringify({
+            text: lyricsInHtml,
+            type: 'HTML'
+        }),
+        headers: {'Content-Type': 'application/json'}
+    });
+    return await response.json();
+}
+
 const searchForm = document.getElementById("search");
 const songTitleEl = document.getElementById("songTitleEl");
 const songLyricsEl = document.getElementById("songLyricsEl");
+const sentimentEl = document.getElementById("sentiment");
 
 searchForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -42,8 +55,10 @@ searchForm.addEventListener("submit", async (event) => {
         const title = song.response.song["full_title"];
         const path = song.response.song["path"];
         const lyrics = await fetchLyrics(path);
+        const sentiment = await fetchSentiment(lyrics);
 
         songTitleEl.textContent = title;
-        songLyricsEl.outerHTML = lyrics;
+        songLyricsEl.innerHTML = lyrics;
+        sentimentEl.textContent = `score: ${sentiment.score} magnitude: ${sentiment.magnitude}`;
     }
 });
