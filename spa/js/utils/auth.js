@@ -1,4 +1,5 @@
-const host = "http://localhost:3000/";
+// const host = "http://localhost:3000/";
+const host = "https://lyriq.ikbenmel.vin/"
 const prodClient = "lbPrqkICyqfOhIehuKWMUyZfDJvGlqDNW_Yig-4yFDWsoTNNfeq2ZxCTywOFWLja";
 const localClient = "jNEHvueba1909jwcMxCcDCqMFcBw5PDgDVaSN8J2rndgosYsFN91W29PkCKpeFwN"
 
@@ -17,7 +18,7 @@ function removeBearerToken() {
 const isAuthenticated = () => !!retrieveBearerToken();
 
 function generateAuthorizationURL() {
-    const clientId = localClient;
+    const clientId = prodClient;
     const redirectUri = host + "auth.html";
     const scope = "me";
     const state = "test";
