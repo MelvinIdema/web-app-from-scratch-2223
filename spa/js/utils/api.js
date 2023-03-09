@@ -18,5 +18,23 @@ async function getSongById(id) {
     return response.json();
 }
 
-export {search, getSongById};
+async function fetchLyrics(path) {
+    const response = await fetch(`https://serverless-shit.ikbenmel.vin/api/scrapeLyrics?url=${path}`);
+    const data = await response.json();
+    return data.res;
+}
+
+async function fetchSentiment(lyricsInHtml) {
+    const response = await fetch('https://serverless-shit.ikbenmel.vin/api/analyseSentiment', {
+        method: 'POST',
+        body: JSON.stringify({
+            text: lyricsInHtml,
+            type: 'HTML'
+        }),
+        headers: {'Content-Type': 'application/json'}
+    });
+    return await response.json();
+}
+
+export {search, getSongById, fetchLyrics, fetchSentiment};
 

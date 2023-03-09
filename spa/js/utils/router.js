@@ -1,4 +1,14 @@
+/**
+ * Sources:
+ * - https://dev.to/skaytech/build-a-custom-spa-router-using-vanillajs-4a9l
+ * - https://dev.to/pixari/build-a-very-basic-spa-javascript-router-2k4p
+ * - https://www.section.io/engineering-education/how-to-build-a-simple-router-in-javascript
+ */
+
 const cachedHtml = {};
+
+const showLoader = () => document.querySelector("#loader").style.display = "grid";
+const hideLoader = () => document.querySelector("#loader").style.display = "none";
 
 /**
  * Parses the location by removing the /#
@@ -61,6 +71,10 @@ async function router(routes) {
     const path = parseLocation();
     if(path === "/") window.location.hash = "/";
 
+    /**
+     * This part of the code is responsible for grabbing URL query
+     * !!Super Buggy!!
+     */
     // If the route does not match any routes
     if(!routes[path]) {
         // Check if the first part of the route matches any route
@@ -96,4 +110,4 @@ function initRouter(routes) {
 }
 
 export default initRouter;
-export { render, redirect }
+export { render, redirect, showLoader, hideLoader }
