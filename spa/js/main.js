@@ -9,7 +9,11 @@ async function RedirectToAuth() {
 
 async function Login() {
     if(isAuthenticated()) redirect('/');
-    return await render('login.html', {});
+
+    function afterRender() {
+        document.querySelector("nav").style.display = "none";
+    }
+    return await render('login.html', {}, afterRender);
 }
 
 async function Logout() {
